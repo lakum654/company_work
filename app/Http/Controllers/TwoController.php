@@ -8,7 +8,7 @@ use App\Comment;
 class TwoController extends Controller
 {
     public function index(){
-        $posts = Post::with('comments')->get();
+        $posts = Post::has('comments')->get();
         return view('Two.index',compact('posts'));
     }
     public function create(){
@@ -20,6 +20,11 @@ class TwoController extends Controller
         $comment = new Comment();
         $comment->comment = $request->comment;
         $post->comments()->save($comment);
+        return redirect('two');
+    }
+
+    public function destroy($id){
+        Post::find($id)->delete();
         return redirect('two');
     }
 }

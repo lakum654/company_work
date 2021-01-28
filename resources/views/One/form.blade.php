@@ -1,5 +1,4 @@
 <html>
-
 <table align="center" border="1">
 <form action="{{ url('one/store') }}" method="POST">
 @csrf
