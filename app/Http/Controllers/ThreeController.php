@@ -21,9 +21,21 @@ class ThreeController extends Controller
       $user = User::find($request->user);
       $roles = $request->roles;
       //$user->roles()->attach($roles);
-      $user->roles()->sync($roles);
+      $user->roles()->attach($roles);
       return redirect('three');
       //$user->roles()->detach($roles);
+    }
+    public function edit($id){
+     $user = User::find($id);
+     $users = User::get();
+     $roles = Role::get();
+     return view('three._form',compact('users','roles','user'));
+    }
+    public function update(Request $request){
+      $user = User::find($request->user);
+      $roles = $request->role;
+      $user->roles()->sync($roles);
+      return redirect('three');
     }
     public function destroy($role_id,$user_id){
         $user = User::find($user_id);

@@ -29,7 +29,14 @@ Route::get('two/delete/{id}','TwoController@destroy');
 Route::get('three','ThreeController@index');
 Route::get('three/create','ThreeController@create');
 Route::post('three/store','ThreeController@store');
-Route::get('three/delete/{role_id}/{user_id}','ThreeController@edit');
+Route::get('three/{user_id}/edit','ThreeController@edit');
+Route::post('three/update','ThreeController@update');
 Route::get('three/delete/{role_id}/{user_id}','ThreeController@destroy');
+
+Route::get('four','FourController@index');
+
+Route::get('five','FiveController@index');
+Route::get('five/create','FiveController@create');
+Route::get('five/store','FiveController@store');
 
 
