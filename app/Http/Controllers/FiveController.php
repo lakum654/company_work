@@ -15,11 +15,25 @@ class FiveController extends Controller
       return view('five.index',compact('postsText','postsVideo'));
 
     }
-
     public function create(){
-        $post = Video::find(1);	
+        $postsText = Post::with('bothComments')->get();
+        $postsVideo = Video::with('bothComments')->get();
+        return view('five.form',compact('postsText','postsVideo'));
+    }
+
+    public function store1(Request $request){
+        $post = Post::find($request->id);	
         $comment = new BothComment;
-        $comment->comment = "Hi ItSolutionStuff.com";
+        $comment->comment = $request->comment;
         $post->bothComments()->save($comment);
+        return redirect('five');
+    }
+
+    public function store2(Request $request){
+        $post = Video::find($request->id);	
+        $comment = new BothComment;
+        $comment->comment = $request->comment;
+        $post->bothComments()->save($comment);
+        return redirect('five');
     }
 }

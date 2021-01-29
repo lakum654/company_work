@@ -22,8 +22,8 @@
                 </div>
             </li>
 			<hr>
-			<form action="{{ url('two/store') }}" method="post">
-				@csrf
+      <form action="{{ url('two/store') }}" method="post">
+        @csrf
             <div class="row">
               <div class="col-lg-10 col-10">
 				<input type="hidden" name="id" value="{{  $post->id }}">

@@ -37,6 +37,7 @@ Route::get('four','FourController@index');
 
 Route::get('five','FiveController@index');
 Route::get('five/create','FiveController@create');
-Route::get('five/store','FiveController@store');
+Route::post('five/store1','FiveController@store1');
+Route::post('five/store2','FiveController@store2');
 
 
