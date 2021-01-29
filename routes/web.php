@@ -41,3 +41,9 @@ Route::post('five/store1','FiveController@store1');
 Route::post('five/store2','FiveController@store2');
 
 
+Route::get('six','SixController@index');
+Route::get('six/create','SixController@create');
+Route::any('six/store1','SixController@store1');
+Route::any('six/store2','SixController@store2');
+
+
